@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+
+h1 {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    color: red;
+    border-bottom: solid 2px black;
+    width: 100%;
+}
+
+
+
+.complete-message {
+    display: flex; 
+    justify-content: center;
+}
+
+
+
+.complete-message p {
+    font-size: 28px;
+    text-align: left;
+    font-weight: bold;
+    white-space: nowrap; 
+    margin-top: 210px;
+
+
+}
+
+
+
+.touroku-under {
+    margin-top: 232px;
+    border-top: solid 2px black;
+    width: 100%;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center; 
+    gap: 100px; 
+}
+
+
+
+.menu, .search {
+    display: inline-block;
+    box-sizing: border-box;
+    height: 50px;
+    width: 120px;
+    line-height: 44px;
+    text-align: left;
+    font-size: 22px;
+    text-decoration: none;
+    border: 2px solid black;
+    padding-left: 8px;
+    color: black;
+}
+
+
+.search {
+    background-color: orange;
+}

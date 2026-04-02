@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+h1 {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    color: red;
+    border-bottom: solid 2px black;
+    width: 100%;
+}
+
+.touroku-all {
+    text-align: center; 
+}
+
+.touroku{
+    margin-bottom: 120px;
+    position: relative; 
+    display: inline-block; 
+}
+
+.form-row{
+    display: flex; 
+    justify-content: center;
+    align-items: center;     
+    gap: 10px;    
+}
+
+.form-row p {
+    font-size: 28px;
+    width: 220px;   
+    text-align: left;
+    font-weight: bold;
+}
+
+.form-row input{
+    height: 50px;
+    width: 260px;
+    border: 2px solid black;
+}
+
+.touroku-under {
+    border-top: solid 2px black;
+    width: 100%;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center; 
+    gap: 100px; 
+}
+
+.touroku-under input {
+    background-color: orange;
+    height: 50px;
+    width: 120px;
+    text-align: left;
+    font-size: 22px;
+    border: 2px solid black;
+}
+
+.touroku-under a {
+    display: inline-block; 
+    border: 2px solid black;
+    text-decoration: none;
+    height: 50px;
+    width: 120px;
+    line-height: 44px; 
+    text-align: left;
+    font-size: 22px;
+    color: black;
+    padding-left: 8px;
+    box-sizing: border-box;
+    
+
+}
+
+.required {
+    color: red;
+    font-size: 40px;
+    display: inline-block;
+    line-height: 20px;  
+    position: relative;
+    top: 14px;             
+    margin-left: 0;
+    left: -8px;
+
+}
+
+
+.confirm-message {
+    position: absolute;
+    top: 100%;          
+    left: 0;             
+    white-space: nowrap; 
+    transform: translateY(50px); 
+    font-size: 25px;
+}

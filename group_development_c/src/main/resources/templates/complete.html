@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/complete.css}" />
+    <title>社員登録画面</title>
+</head>
+<body>
+    <h1>社員情報登録 (完了)</h1>
+
+        <div class="error" th:if="${error}">
+        <p th:text="${error}"></p>
+        </div>
+
+
+
+    <div class="complete-message">
+        <p th:text="${msg}"></p>
+    </div> 
+    
+
+
+
+
+<div class="touroku-under">
+    <a th:href="@{/menu}" class="menu">メニュー</a>
+    <a th:href="@{/search}" class="search">検索へ</a>
+</div>
+
+
+
+
+
+    
+</body>
+</html>
