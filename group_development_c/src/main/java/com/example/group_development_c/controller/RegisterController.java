@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.group_development_c.service.RegisterService;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 
@@ -38,6 +39,20 @@ public class RegisterController {
 
 
         }
+
+        @GetMapping("/insert/back")
+public String backToInsert(HttpServletRequest request) {
+    String referer = request.getHeader("Referer");
+
+
+    if (referer != null && !referer.isEmpty()) {
+        
+        return "redirect:" + referer;
+    } 
+    // 現状前の画面は作成されていない
+    return null; 
+}
+
 
 
 
