@@ -37,7 +37,7 @@
 
 <div class="touroku-under">
     <input class="push" type="submit" value="確認">
-    <a th:href="@{/insert/back}" class="back">戻る</a>
+    <a th:href="@{/insert/back(from=${from})}" class="back">戻る</a>
 </div>
 
     </div>    
@@ -45,7 +45,6 @@
     </form>
 
 
-    <!-- javaScript ポップアップ部分 -->
         <script>
     function validateForm() {
         let name = document.querySelector('[name="name"]').value.trim();

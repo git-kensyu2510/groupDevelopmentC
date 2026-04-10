@@ -57,7 +57,7 @@ h1 {
     border: 2px solid black;
 }
 
-.touroku-under a {
+.touroku-under .back {
     display: inline-block; 
     border: 2px solid black;
     text-decoration: none;

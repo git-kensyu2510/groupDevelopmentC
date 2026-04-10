@@ -8,45 +8,63 @@
 </head>
 <body>
     <h1>社員情報登録 (確認)</h1>
-    <form th:action="@{/insert/complete}" method="post">
 
     
 
-<div class="touroku-all">    
-    <div class="touroku">
-        <div class="form-row">
-    <p>社員名 <span class="required">*</span></p><input class="text1" type="text" name="name" th:value="${name}" readonly>
-        </div>
+        <div class="touroku-all">    
+            <div class="touroku">
+                <div class="form-row">
+                    <p>社員名 <span class="required">*</span></p>
+                    <input class="text1" type="text" name="name" th:value="${name}" readonly>
+                </div>
 
-        <div class="form-row">
-    <p>年齢 <span class="required">*</span></p><input class="text2" type="number" name="age" th:value="${age}" readonly>
-        </div>
+                <div class="form-row">
+                    <p>年齢 <span class="required">*</span></p>
+                    <input class="text2" type="number" name="age" th:value="${age}" readonly>
+                </div>
 
-        <div class="form-row">
-    <p>パスワード <span class="required">*</span></p><input class="text3" type="password" name="password" th:value="${password}" readonly>
-        </div>
+                <div class="form-row">
+                    <p>パスワード <span class="required">*</span></p>
+                    <input class="text3" type="password" name="password" th:value="${password}" readonly>
+                </div>
 
-        <div class="form-row">
-    <p>パスワード確認 <span class="required">*</span></p><input class="text4" type="password" name="passwordConfirm" th:value="${passwordConfirm}" readonly>
-        </div>
+                <div class="form-row">
+                    <p>パスワード確認 <span class="required">*</span></p>
+                    <input class="text4" type="password" name="passwordConfirm" th:value="${passwordConfirm}" readonly>
+                </div>
 
-    <div class="confirm-message">
-    こちらで登録します。よろしいですか？
-    </div> 
-    
-    </div>
-
-
+                <div class="confirm-message">
+                    こちらで登録します。よろしいですか？
+                </div> 
+            </div>    
 
 <div class="touroku-under">
-    <input class="push" type="submit" value="登録">
-    <a th:href="@{/insert}" class="back"> 戻る</a>
-</div>
 
-
-    </div>    
-
-    </form>
     
+    <form th:action="@{/insert/complete}" method="post">
+        <input type="hidden" name="name" th:value="${name}">
+        <input type="hidden" name="age" th:value="${age}">
+        <input type="hidden" name="password" th:value="${password}">
+        <input type="hidden" name="passwordConfirm" th:value="${passwordConfirm}">
+        <input class="push" type="submit" value="登録">
+    </form>
+
+    
+    <form th:action="@{/insert}" method="post">
+        <input type="hidden" name="name" th:value="${name}">
+        <input type="hidden" name="age" th:value="${age}">
+        <input type="hidden" name="password" th:value="${password}">
+        <input type="hidden" name="passwordConfirm" th:value="${passwordConfirm}">
+        <button type="submit" class="back">戻る</button>
+    </form>
+
+</div>
+            
+
+
+
+
+
+
 </body>
 </html>
