@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/insert.css}" />
+    <title>社員登録画面</title>
+</head>
+<body>
+    <h1>社員情報登録 (入力)</h1>
+    <form th:action="@{/insert/confirm}" method="post" onsubmit="return validateForm()">
+
+        <div class="error" th:if="${error}">
+        <p th:text="${error}"></p>
+        </div>
+
+<div class="touroku-all">    
+    <div class="touroku">
+        <div class="form-row">
+    <p>社員名 <span class="required">*</span></p><input class="text1" type="text" name="name" th:value="${name}">
+        </div>
+
+        <div class="form-row">
+    <p>年齢 <span class="required">*</span></p><input class="text2" type="text" name="age" th:value="${age}">
+        </div>
+
+        <div class="form-row">
+    <p>パスワード <span class="required">*</span></p><input class="text3" type="password" name="password" th:value="${password}">
+        </div>
+
+        <div class="form-row">
+    <p>パスワード確認 <span class="required">*</span></p><input class="text4" type="password" name="passwordConfirm" th:value="${passwordConfirm}">
+        </div>
+
+    </div>
+
+
+<div class="touroku-under">
+    <input class="push" type="submit" value="確認">
+    <a th:href="@{/insert/back(from=${from})}" class="back">戻る</a>
+</div>
+
+    </div>    
+
+    </form>
+
+
+        <script>
+    function validateForm() {
+        let name = document.querySelector('[name="name"]').value.trim();
+        let age = document.querySelector('[name="age"]').value;
+        let password = document.querySelector('[name="password"]').value;
+        let passwordConfirm = document.querySelector('[name="passwordConfirm"]').value;
+
+        let error = "";
+
+        if (!name) {
+            error += "・社員名は必須です\n";
+        }
+
+        if (!age) {
+        error += "・年齢は必須です\n";
+        } else if (!/^[0-9]+$/.test(age)) {
+        error += "・年齢は半角数字で入力してください\n";
+        }
+
+        let passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z])[A-Za-z0-9]{8,}$/;
+        if (!passwordRegex.test(password)) {
+            error += "・パスワードは半角英数字、大文字を含む8文字以上で入力してください\n";
+        }
+
+        if (password !== passwordConfirm) {
+            error += "・パスワードと確認が一致しません\n";
+        }
+
+        if (error) {
+        alert(error);
+        return false; 
+        }
+
+        return true; 
+    }
+    </script>
+    
+</body>
+</html>
