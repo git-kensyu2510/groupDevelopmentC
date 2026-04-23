@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>社員情報更新（確認）</title>
+    <link rel="stylesheet" th:href="@{/employee.css}">
+</head>
+<body>
+<div class="page">
+    <div class="page-title">社員情報更新画面</div>
+
+    <div class="content-box">
+        <div class="form-frame">
+            <div class="form-header">社員情報更新（確認）</div>
+
+            <form th:action="@{/update/complete}" method="post">
+                <table class="form-table">
+                    <tr>
+                        <th>社員ID</th>
+                        <td>
+                            <div class="display-box" th:text="${employeeId}"></div>
+                            <input type="hidden" name="employeeId" th:value="${employeeId}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>社員名</th>
+                        <td>
+                            <div class="display-box" th:text="${name}"></div>
+                            <input type="hidden" name="name" th:value="${name}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>年齢</th>
+                        <td>
+                            <div class="display-box" th:text="${age}"></div>
+                            <input type="hidden" name="age" th:value="${age}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>パスワード</th>
+                        <td>
+                            <div class="display-box">●●●●●●●●</div>
+                            <input type="hidden" name="password" th:value="${password}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>パスワード確認</th>
+                        <td>
+                            <div class="display-box">●●●●●●●●</div>
+                            <input type="hidden" name="passwordConfirm" th:value="${passwordConfirm}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>開始日</th>
+                        <td>
+                            <div class="display-box" th:text="${startDate}"></div>
+                            <input type="hidden" name="startDate" th:value="${startDate}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>終了日</th>
+                        <td>
+                            <div class="display-box" th:text="${endDate}"></div>
+                            <input type="hidden" name="endDate" th:value="${endDate}">
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="confirm-text">こちらで更新します。よろしいですか？</div>
+
+                <div class="button-area">
+                    <button type="submit" class="btn btn-main">更新</button>
+                </div>
+            </form>
+
+            <div class="button-area">
+                <form th:action="@{/update}" method="post" class="button-inline-form">
+                    <input type="hidden" name="employeeId" th:value="${employeeId}">
+                    <input type="hidden" name="name" th:value="${name}">
+                    <input type="hidden" name="age" th:value="${age}">
+                    <input type="hidden" name="password" th:value="${password}">
+                    <input type="hidden" name="passwordConfirm" th:value="${passwordConfirm}">
+                    <input type="hidden" name="startDate" th:value="${startDate}">
+                    <input type="hidden" name="endDate" th:value="${endDate}">
+                    <button type="submit" class="btn btn-sub">戻る</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
