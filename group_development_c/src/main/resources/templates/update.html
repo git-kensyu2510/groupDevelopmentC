@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>社員情報更新（入力）</title>
+    <link rel="stylesheet" th:href="@{/employee.css}">
+</head>
+<body>
+<div class="page">
+    <div class="page-title">社員情報更新画面</div>
+
+    <div class="content-box">
+        <div class="form-frame">
+            <div class="form-header">社員情報更新（入力）</div>
+
+            <div th:if="${error}" class="error-message" th:text="${error}"></div>
+
+            <form th:action="@{/update/confirm}" method="post">
+                <table class="form-table">
+                    <tr>
+                        <th>社員ID</th>
+                        <td>
+                            <input type="text" name="employeeId" class="readonly-box" th:value="${employeeId}" readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>社員名<span class="required">*</span></th>
+                        <td>
+                            <input type="text" name="name" class="textbox" th:value="${name}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>年齢<span class="required">*</span></th>
+                        <td>
+                            <input type="text" name="age" class="textbox" th:value="${age}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>パスワード<span class="required">*</span></th>
+                        <td>
+                            <input type="password" name="password" class="textbox" th:value="${password}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>パスワード確認<span class="required">*</span></th>
+                        <td>
+                            <input type="password" name="passwordConfirm" class="textbox" th:value="${passwordConfirm}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>開始日<span class="required">*</span></th>
+                        <td>
+                            <input type="date" name="startDate" class="datebox" th:value="${startDate}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>終了日</th>
+                        <td>
+                            <input type="date" name="endDate" class="datebox" th:value="${endDate}">
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="button-area">
+                    <button type="submit" class="btn btn-main">確認</button>
+                </div>
+            </form>
+
+            <div class="button-area">
+    <form th:action="@{/search}" method="get" class="button-inline-form">
+        <button type="submit" class="btn btn-sub">戻る</button>
+    </form>
+
+    <form th:action="@{/insert}" method="get" class="button-inline-form">
+        <button type="submit" class="btn btn-accent">社員情報登録へ</button>
+    </form>
+</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
