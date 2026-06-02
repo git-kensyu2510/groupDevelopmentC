@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID検索</title>
+    <link rel="stylesheet" th:href="@{/layout.css}">
+</head>
+<body>
+    <div th:replace="~{layout::header}"></div>
+    <main>
+        <h1>社員ID検索</h1>
+        <form th:action="@{/searchId2/result}" method="get">
+            <input type="text" name="selectIds" placeholder="IDを入力してください">
+            <button type="submit">検索</button>
+            <a th:href="@{/menu}">戻る</a>
+        </form>
+        <form th:action="@{/delete}" method="post">
+            <input type="hidden" name="from" value="multi">
+            <div th:if="${employee != null}">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>☑</th>
+                            <th>社員ID</th>
+                            <th>社員名</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each = "employee : ${employee}">
+                            <td><input type="checkbox" name="selectIds" th:value="${employee.employeeId}"></td>
+                            <td th:text ="${employee.employeeId}"></td>
+                            <td th:text ="${employee.name}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <input type="submit" value="削除">
+        </form>
+
+        <!--エラー表示-->
+        <script th:inline="javascript">
+            let searchErrorNull = /*[[${searchErrorNull}]]*/ null;
+            let searchError = /*[[${searchError}]]*/ null;
+
+            if(searchError){
+                alert(searchError);
+            }
+
+            if(searchErrorNull){
+                alert(searchErrorNull);
+            }
+        </script>
+    </main>
+    <div th:replace="~{layout::footer}"></div>
+</body>
+</html>

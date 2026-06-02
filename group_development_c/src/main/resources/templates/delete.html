@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社員情報削除</title>
+    <link rel="stylesheet" th:href="@{/layout.css}">
+    <link rel="stylesheet" th:href="@{/delete.css}">
+</head>
+<body>
+    <div th:replace="~{layout::header}"></div>
+    <main>
+        <h1>社員情報削除（確認）</h1>
+        <!--社員IDの表示（複数の場合も見やすいように）-->
+        <!--削除ボタン 削除処理を行い社員情報削除（完了）画面に移動 ※自分自身は削除できないようにする-->
+        <form th:action="@{/deleted}" method="post">
+            <table>
+                <tr th:each = "employee : ${employee}">
+                    <th>社員ID</th>
+                    <td th:text ="${employee.employeeId}">0</td>
+                    <input type="hidden" name="selectIds" th:value="${employee.employeeId}">
+                </tr>
+            </table>
+            <p>こちらを削除します。よろしいですか？</p>
+            <div class="delete">
+                <input type="submit" value="削除">
+            </div>
+        </form>
+
+        <!--戻るボタン 前の画面(menu,検索画面)に戻る ※ヒストリーバックは行わずコントローラーを経由する-->
+        <form th:action="@{/back}" method="post" class="back">
+            <input type="hidden" name="from" th:value="${from}">
+            <input type="submit" value="戻る">
+        </form>
+        
+        <!--エラー表示-->
+        <script th:inline="javascript">
+            let deleteError = /*[[${deleteError}]]*/ null;
+            let deleteErrorNull = /*[[${deleteErrorNull}]]*/ null;
+
+            if(deleteError){
+                alert(deleteError);
+            }
+
+            if(deleteErrorNull){
+                alert(deleteErrorNull);
+            }
+        </script>
+    </main>
+    <div th:replace="~{layout::footer}"></div>
+</body>
+</html>

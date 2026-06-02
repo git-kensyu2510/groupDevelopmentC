@@ -1,0 +1,55 @@
+*{
+    box-sizing: border-box;
+}
+h1{
+    margin-bottom: 30px;
+    font-size: 30px;
+    margin: 0;
+    position: relative;
+    bottom: 50px;
+    color: red;
+    font-size: 30px;
+}
+main{
+    border-top: black solid 2px;
+}
+form{
+    text-align: center;
+}
+table{
+    font-size: 30px;
+    margin-left: 40%;
+    margin-top: 20px;
+}
+td{
+    padding-left: 150px;
+}
+form p{
+    font-size: 25px;
+    margin: 20% 0 20px 0;
+    padding-bottom: 30px;
+    border-bottom: 2px solid black;
+}
+.delete{
+    margin-top: auto;
+    text-align: left;
+}
+.delete input{
+    background-color: orange;
+    font-size: 22px;
+    width: 120px;
+    height: 50px;
+    margin-left: 40%;
+}
+.back{
+    text-align: right;
+    position: relative;
+    bottom: 50px;
+}
+.back input{
+    background-color: #eee;
+    font-size: 22px;
+    width: 120px;
+    height: 50px;
+    margin-right: 40%;
+}

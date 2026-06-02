@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社員情報削除完了</title>
+    <link rel="stylesheet" th:href="@{/layout.css}">
+</head>
+<body>
+    <div th:replace="layout::header"></div>
+    <main>
+        <div>
+            <p>社員情報の削除が完了しました。</p>
+        </div>
+        <div>
+            <a th:href="@{/menu}">トップメニュー</a>
+        </div>
+        <div>
+            <a th:href="@{/search}">社員情報検索</a>
+        </div>
+    </main>
+    <div th:replace="layout::footer"></div>
+</body>
+</html>
