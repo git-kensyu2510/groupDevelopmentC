@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/login.css}">
+</head>
+<body>
+    <h1>Login</h1>
+    <form th:action="@{/menu}" method="post">
+        <div class="text-align">
+            <label>ログインID</label>
+            <input type="text" name="id" class="login-item">
+        </div>
+        <div>
+            <label>パスワード</label>
+            <input type="password" name="pass" class="login-item">
+        </div>
+        <div class="login-b">
+            <input type="submit" value="Login" class="login-b">
+        </div>
+    </form>
+    <!--エラー表示-->
+    <script th:inline="javascript">
+        let loginErrorNull = /*[[${loginErrorNull}]]*/ null;
+        let loginError = /*[[${loginError}]]*/ null;
+        
+        if(loginError){
+            alert(loginError);
+        }if(loginErrorNull){
+            alert(loginErrorNull);
+        }
+        </script>
+</body>
+</html>

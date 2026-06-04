@@ -1,0 +1,20 @@
+<!--ログイン情報の表示-->
+<!--ユーザ名、ログイン日時を表示。すべての画面で表示できるよう共通化-->
+<link rel="stylesheet" th:href="@{/layout.css}">
+<div class="header" th:fragment="header"> 
+    <p><span th:text="${session.employee.name}">名前</span>さん</p>
+    <p th:text="${#temporals.format(session.loginTime, 'yyyy/MM/dd HH:mm:ss')}">yyyy/MM/dd HH:mm:ss</p>
+</div>
+<!--
+<div th:replace="~{layout::header}"></div>
+ヘッダーの箇所に置くと適応される
+-->
+
+<!--最下部、右下にコピーライトを表示。すべてほ画面で表示できるよう共通化-->
+<div class="footer" th:fragment="footer">
+    <small>&copy; 2026 JavaStudy TeamC</small>
+</div>
+<!--
+<div th:replace="~{layout::footer}"></div>
+フッターの箇所に置くと適応される
+-->
