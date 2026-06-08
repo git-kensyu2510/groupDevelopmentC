@@ -9,11 +9,16 @@
 <div class="page">
     <div class="page-title">社員情報更新画面</div>
 
+    <div th:if="${error}" class="error-popup-wrap">
+        <div class="error-popup">
+            <div class="error-popup-title">入力エラー</div>
+            <div class="error-popup-body" th:text="${error}"></div>
+        </div>
+    </div>
+
     <div class="content-box">
         <div class="form-frame">
             <div class="form-header">社員情報更新（入力）</div>
-
-            <div th:if="${error}" class="error-message" th:text="${error}"></div>
 
             <form th:action="@{/update/confirm}" method="post">
                 <table class="form-table">
@@ -67,14 +72,10 @@
             </form>
 
             <div class="button-area">
-    <form th:action="@{/search}" method="get" class="button-inline-form">
-        <button type="submit" class="btn btn-sub">戻る</button>
-    </form>
-
-    <form th:action="@{/insert}" method="get" class="button-inline-form">
-        <button type="submit" class="btn btn-accent">社員情報登録へ</button>
-    </form>
-</div>
+                <form th:action="@{/search}" method="get" class="button-inline-form">
+                    <button type="submit" class="btn btn-sub">戻る</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

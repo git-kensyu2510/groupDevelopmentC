@@ -1,7 +1,10 @@
 package com.example.group_development_c.controller;
 
-import java.sql.Date;
+// 確認用URL
+// http://localhost:8080/update?employeeId=10006
+// http://localhost:8080/search
 
+import java.sql.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -195,5 +198,3 @@ public class UpdateController {
     }
 }
 
-// 確認用URL
-// http://localhost:8080/update?employeeId=10006

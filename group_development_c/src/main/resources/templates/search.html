@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>社員情報検索画面</title>
+    <link rel="stylesheet" th:href="@{/employee.css}">
+</head>
+<body>
+<div class="page">
+    <div class="page-title">社員情報検索画面</div>
+
+    <div th:if="${error}" class="error-popup-wrap">
+        <div class="error-popup">
+            <div class="error-popup-title">入力エラー</div>
+            <div class="error-popup-body" th:text="${error}"></div>
+        </div>
+    </div>
+
+    <div class="content-box">
+        <div class="form-frame">
+            <div class="form-header">社員ID検索</div>
+
+            <form th:action="@{/search}" method="post">
+                <table class="form-table">
+                    <tr>
+                        <th>社員ID<span class="required">*</span></th>
+                        <td>
+                            <input type="text" name="employeeId" class="textbox" th:value="${employeeId}">
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="button-area">
+                    <button type="submit" class="btn btn-main">検索</button>
+                </div>
+            </form>
+
+            <div class="button-area">
+                <form th:action="@{/menu}" method="get" class="button-inline-form">
+                    <button type="submit" class="btn btn-sub">戻る</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

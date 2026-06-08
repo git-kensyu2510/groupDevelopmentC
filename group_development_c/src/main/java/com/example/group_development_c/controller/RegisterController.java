@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import com.example.group_development_c.entity.Employee;
 import com.example.group_development_c.service.RegisterService;
-
+import com.example.group_development_c.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +18,8 @@ public class RegisterController {
 
     @Autowired
     private RegisterService service;
+    @Autowired
+    private SearchService searchService;
 
     // 入力画面表示
     //localhost:8080/insert
@@ -165,8 +167,36 @@ public String backToPrevious(@RequestParam(value = "from", defaultValue = "menu"
     }
 
     @GetMapping("/search")
-    public String search() {
+    public String search(
+            @RequestParam(value = "employeeId", required = false, defaultValue = "")
+            String employeeId,
+            Model model
+    ) 
+
+    {model.addAttribute("employeeId", employeeId);
         return "search";
     }
 
+    @PostMapping("/search")
+    public String searchById(
+            @RequestParam("employeeId") String employeeId,
+            Model model
+    ) {
+
+        String error = "";
+        if (employeeId == null || employeeId.trim().isEmpty()) {
+            error = "・社員IDは必須です";
+        } else if (!employeeId.matches("^[0-9]+$")) {
+            error = "・社員IDは半角数字で入力してください";
+        } else {
+            Integer id = Integer.parseInt(employeeId);
+            if (searchService.existsById(id)) {
+                return "redirect:/update?employeeId=" + id;
+            }
+            error = "・指定された社員IDは存在しません";
+        }
+        model.addAttribute("error", error);
+        model.addAttribute("employeeId", employeeId);
+        return "search";
+    }
 }
