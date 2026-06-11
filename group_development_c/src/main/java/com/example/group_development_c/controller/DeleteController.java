@@ -111,7 +111,7 @@ public class DeleteController {
         /*ID未選択 */
         if(selectIds == null || selectIds.isEmpty()){
             m.addAttribute("employee", employee);
-            m.addAttribute("searchErrorNull","IDを選択してください。");
+            m.addAttribute("search2ErrorNull","IDを選択してください。");
             return "searchId2";
         }
 

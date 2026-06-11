@@ -40,15 +40,15 @@
 
         <!--エラー表示-->
         <script th:inline="javascript">
-            let searchErrorNull = /*[[${searchErrorNull}]]*/ null;
+            let search2ErrorNull = /*[[${searchErrorNull}]]*/ null;
             let searchError = /*[[${searchError}]]*/ null;
 
             if(searchError){
                 alert(searchError);
             }
 
-            if(searchErrorNull){
-                alert(searchErrorNull);
+            if(search2ErrorNull){
+                alert(search2ErrorNull);
             }
         </script>
     </main>
