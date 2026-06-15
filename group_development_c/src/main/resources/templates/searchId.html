@@ -11,9 +11,8 @@
     <div th:replace="~{layout::header}"></div>
     <main>
         <h1>社員ID検索</h1>
-        <form th:action="@{/delete}" method="post">
-            <input type="hidden" name="from" value="single">
-            <input type="text" name="selectIds" placeholder="IDを入力してください">
+        <form th:action="@{/delete}" method="get">
+            <input type="text" name="selectIds" th:value="${selectIds}" placeholder="IDを入力してください">
             <button type="submit" class="search">検索</button>
         </form>
         <a th:href="@{/menu}">戻る</a>
