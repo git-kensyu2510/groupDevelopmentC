@@ -28,8 +28,8 @@
         </form>
 
         <!--戻るボタン 前の画面(menu,検索画面)に戻る ※ヒストリーバックは行わずコントローラーを経由する-->
-        <form th:action="@{/back}" method="post" class="back">
-            <input type="hidden" name="from" th:value="${from}">
+        <form th:action="@{/searchId}" method="get" class="back">
+            <input type="hidden" th:each="id : ${selectIds}" name="selectIds" th:value="${id}">
             <input type="submit" value="戻る">
         </form>
         

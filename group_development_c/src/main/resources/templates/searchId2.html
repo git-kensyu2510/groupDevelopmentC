@@ -15,7 +15,7 @@
             <button type="submit">検索</button>
             <a th:href="@{/menu}">戻る</a>
         </form>
-        <form th:action="@{/delete}" method="post">
+        <form th:action="@{/delete}" method="get">
             <input type="hidden" name="from" value="multi">
             <div th:if="${employee != null}">
                 <table border="1">

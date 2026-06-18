@@ -23,8 +23,14 @@ public class DeleteController {
     /*ID検索画面 */
     @GetMapping("/searchId")
     public String SearchAll(
+        @RequestParam(name = "selectIds", required = false) List<String> selectIds,
         HttpSession session,
         Model m){
+        String id = null;
+        if(selectIds != null && !selectIds.isEmpty()){
+            id = selectIds.get(0);
+    }
+        m.addAttribute("selectIds",id);
         String employeeName = (String) session.getAttribute("employeeName");
         m.addAttribute("employeeName",employeeName);
         return "searchId";
@@ -54,9 +60,8 @@ public class DeleteController {
     }
 
     /*削除確認画面 IDが存在しない場合はエラー */
-    @PostMapping("/delete")
+    @GetMapping("/delete")
     public String receiveId(
-        @RequestParam("from") String from,
         @RequestParam(name = "selectIds", required = false) List<String> selectIds,
         Model m){
         /* IDの入力がなければエラー*/
@@ -87,8 +92,13 @@ public class DeleteController {
             }
             empList.addAll((employees));
         }
+        
+        String id = null;
+        if(selectIds != null && !selectIds.isEmpty()){
+            id = selectIds.get(0);
+    }
+        m.addAttribute("selectIds",id);
         m.addAttribute("employee",empList);
-        m.addAttribute("from", from);
         return "delete";
     }
     
@@ -142,14 +152,4 @@ public class DeleteController {
         return "deleted";
     }
 
-    @PostMapping("/back")
-    public String back(@RequestParam("from") String from){
-        if(from.equals("multi")){
-            return "redirect:/searchId2";
-        }
-        if(from.equals("single")){
-            return "redirect:/searchId";
-        }
-        return "redirect:/searchId";
-}
 }
